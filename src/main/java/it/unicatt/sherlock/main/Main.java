@@ -1,6 +1,7 @@
-package it.unicatt.sherlock;
+package it.unicatt.sherlock.main;
 
 import it.unicatt.sherlock.controller.ApplicazioneSherlock;
+import it.unicatt.sherlock.view.risorsa.ApplicatoreStile;
 import javax.swing.*;
 
 /** Avvio del programma */
@@ -15,6 +16,7 @@ public class Main {
             /** Apre il menu iniziale */
             @Override
             public void run() {
+                ApplicatoreStile.applicaLookAndFeelCrossPlatform();
                 ApplicazioneSherlock applicazione = new ApplicazioneSherlock();
                 applicazione.apriMenu();
             }

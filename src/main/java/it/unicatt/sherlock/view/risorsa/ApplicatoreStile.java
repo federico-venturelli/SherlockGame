@@ -270,8 +270,22 @@ public final class ApplicatoreStile {
      * @param bottone bottone cliccabile sull'immagine
      */
     public void preparaBottoneIcona(JButton bottone) {
+        bottone.setFocusPainted(false);
+        bottone.setRolloverEnabled(false);
+        bottone.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        bottone.setOpaque(false);
+        bottone.setContentAreaFilled(false);
         bottone.setBorderPainted(false);
         bottone.setText(null);
+    }
+
+    /** Look & Feel uguale su Mac e Windows (Metal), così le icone PNG restano trasparenti */
+    public static void applicaLookAndFeelCrossPlatform() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (Exception e) {
+            System.out.println("Impossibile applicare il Look & Feel cross-platform: " + e.getMessage());
+        }
     }
 
     /**
